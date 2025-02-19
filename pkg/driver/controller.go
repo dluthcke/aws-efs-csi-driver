@@ -520,6 +520,7 @@ func (d *Driver) DeleteVolume(ctx context.Context, req *csi.DeleteVolumeRequest)
 		deleteCompleted = true
 	}
 
+	// Delete access point
 	if err = localCloud.DeleteAccessPoint(ctx, accessPointId); err != nil {
 		if err == cloud.ErrAccessDenied {
 			return nil, status.Errorf(codes.Unauthenticated, "Access Denied. Please ensure you have the right AWS permissions: %v", err)

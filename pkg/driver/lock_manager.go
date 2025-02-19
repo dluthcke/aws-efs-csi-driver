@@ -13,7 +13,6 @@ type LockManager struct {
 }
 
 type LockManagerMap struct {
-    mutex sync.RWMutex
     locks sync.Map
 }
 
